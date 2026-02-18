@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { useState } from 'react'
 import { Menu, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import Image from 'next/image'
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false)
@@ -24,8 +25,16 @@ export function Header() {
         <div className="flex items-center justify-between py-4 sm:py-5">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 sm:gap-3 text-xl sm:text-2xl font-bold flex-shrink-0">
-            <div className="flex h-9 sm:h-10 w-9 sm:w-10 items-center justify-center rounded-lg bg-accent">
-              <span className="text-base sm:text-lg font-bold text-accent-foreground">☀️</span>
+            <div className="flex h-9 sm:h-10 w-9 sm:w-10 items-center justify-center rounded-lg ">
+              {/* <span className="text-base sm:text-lg font-bold text-accent-foreground">☀️</span> */}
+              {/* bg-accent */}
+              <Image 
+              src="/app-icon.png" 
+              alt="SunStark Solar" 
+              width={32} 
+              height={32} 
+              className="rounded-full w-96"
+              />
             </div>
             <span className="text-foreground tracking-tight hidden sm:inline">SunStark</span>
           </Link>

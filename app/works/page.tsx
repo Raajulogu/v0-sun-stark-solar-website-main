@@ -6,6 +6,7 @@ import { Zap, MapPin, TrendingUp } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
+import { getAllWorks } from '@/lib/prismic'
 
 // Mock projects data - In production, this would come from Prismic CMS or MongoDB
 const projects = [
@@ -83,7 +84,9 @@ const projects = [
   }
 ]
 
-export default function Works() {
+export default async function Works() {
+  const works = await getAllWorks();
+  console.log(works)
   return (
     <>
       <Header />
