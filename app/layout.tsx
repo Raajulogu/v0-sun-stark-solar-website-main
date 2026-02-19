@@ -5,33 +5,52 @@ import { WhatsAppButton } from '@/components/whatsapp-button';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'SunStark Solar | Solar Energy Solutions in Tamil Nadu & Pondicherry',
-  description: 'SunStark Solar - Premium solar energy solutions for residential, commercial, and industrial properties. Government subsidy support for on-grid solar systems. 600+ projects completed. Installation, maintenance, and support across Tamil Nadu and Pondicherry.',
-  keywords: 'solar energy, solar panels, residential solar, commercial solar, solar installation, solar subsidy Tamil Nadu, on-grid solar, rooftop solar',
-  openGraph: {
-    title: 'SunStark Solar | Premium Solar Energy Solutions',
-    description: 'Transform your energy with professional solar solutions. Government subsidies available. 600+ successful installations.',
-    type: 'website',
-    locale: 'en_IN',
+  metadataBase: new URL("https://www.sunstarksolar.com"),
+
+  applicationName: "SunStark Solar",
+  title: {
+    default: "SunStark Solar | Solar Energy Solutions in Tamil Nadu & Pondicherry",
+    template: "%s | SunStark Solar",
   },
+
+  description:
+    "SunStark Solar provides premium residential, commercial, and industrial solar energy solutions across Tamil Nadu and Pondicherry. 600+ projects completed with government subsidy support for on-grid systems.",
+
+  keywords: [
+    "SunStark Solar",
+    "solar company Tamil Nadu",
+    "solar installation Pondicherry",
+    "residential solar Tamil Nadu",
+    "on-grid solar subsidy",
+    "rooftop solar installation",
+    "solar panel installation",
+    "solar energy solutions India",
+  ],
+
+  referrer: "origin-when-cross-origin",
+
+  robots: {
+    index: true,
+    follow: true,
+  },
+
   icons: {
-    icon: [
-      {
-        url: '/app-icon.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/app-icon.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/app-icon.png',
-        type: 'image/png',
-      },
-    ],
-    apple: '/app-icon.png',
+    icon: "/app-icon.png",
+    apple: "/app-icon.png",
   },
-}
+
+  openGraph: {
+    siteName: "SunStark Solar",
+    locale: "en_IN",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+  },
+
+  category: "Renewable Energy",
+};
 
 export default function RootLayout({
   children,

@@ -1,11 +1,13 @@
 'use client'
 
-import Link from 'next/link'
-import Image from 'next/image'
+import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowRight, Zap, Battery, Monitor, Wrench, MessageCircle } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
+import { useEffect } from 'react'
+import { getAllProducts } from '@/lib/prismic'
 
 // Utility function to generate WhatsApp message for products
 function getProductWhatsAppUrl(productName: string) {
@@ -70,7 +72,15 @@ export default function ProductsPage() {
       specs: ['UL certified cables', 'DC & AC components', 'Safety protection devices', 'Industry standard'],
       highlight: 'Safety assured'
     }
-  ]
+  ];
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      const data = await getAllProducts();
+      console.log(data);
+    };
+    fetchProducts();
+  }, []);
 
   return (
     <>

@@ -37,3 +37,24 @@ export async function getWorkByUID(uid: string) {
     return null;
   }
 }
+
+/**
+ * Get all works
+ */
+export async function getAllProducts() {
+  const client = createClient();
+
+  try {
+    const products = await client.getAllByType("products", {
+      orderings: {
+        field: "document.first_publication_date",
+        direction: "desc",
+      },
+    });
+
+    return products;
+  } catch (error) {
+    console.error("Error fetching works:", error);
+    return [];
+  }
+}

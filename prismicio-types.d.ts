@@ -70,6 +70,108 @@ type ContentRelationshipFieldWithData<
 }[Exclude<TCustomType[number], string>["id"]];
 
 /**
+ * Item in *Products → Specs*
+ */
+export interface ProductsDocumentDataSpecsItem {
+  /**
+   * Spec field in *Products → Specs*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: E.g., 400W - 550W capacity
+   * - **API ID Path**: products.specs[].spec
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  spec: prismic.KeyTextField;
+}
+
+/**
+ * Content for Products documents
+ */
+interface ProductsDocumentData {
+  /**
+   * Name field in *Products*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Enter the name of the Product
+   * - **API ID Path**: products.name
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  name: prismic.KeyTextField;
+
+  /**
+   * Category field in *Products*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Which Category it is ?
+   * - **API ID Path**: products.category
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  category: prismic.KeyTextField;
+
+  /**
+   * Image field in *Products*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: products.image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Description field in *Products*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Give a short description about the product
+   * - **API ID Path**: products.description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  description: prismic.KeyTextField;
+
+  /**
+   * Highlight field in *Products*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Give a Highlight of this product
+   * - **API ID Path**: products.highlight
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  highlight: prismic.KeyTextField;
+
+  /**
+   * Specs field in *Products*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: products.specs[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  specs: prismic.GroupField<Simplify<ProductsDocumentDataSpecsItem>>;
+}
+
+/**
+ * Products document from Prismic
+ *
+ * - **API ID**: `products`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ProductsDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<ProductsDocumentData>,
+    "products",
+    Lang
+  >;
+
+/**
  * Item in *Work → Images*
  */
 export interface WorkDocumentDataImagesItem {
@@ -292,7 +394,7 @@ interface WorkDocumentData {
 export type WorkDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<WorkDocumentData>, "work", Lang>;
 
-export type AllDocumentTypes = WorkDocument;
+export type AllDocumentTypes = ProductsDocument | WorkDocument;
 
 /**
  * Default variation for Details Slice
@@ -345,6 +447,9 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
+      ProductsDocument,
+      ProductsDocumentData,
+      ProductsDocumentDataSpecsItem,
       WorkDocument,
       WorkDocumentData,
       WorkDocumentDataImagesItem,
