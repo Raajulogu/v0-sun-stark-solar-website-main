@@ -1,13 +1,13 @@
-'use client'
+'use client';
 
-import Link from 'next/link'
-import { useState } from 'react'
-import { Menu, X } from 'lucide-react'
-import { Button } from '@/components/ui/button'
-import Image from 'next/image'
+import Link from 'next/link';
+import { useState } from 'react';
+import { Menu, X } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import Image from 'next/image';
 
 export function Header() {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
 
   const navItems = [
     { label: 'Home', href: '/' },
@@ -17,7 +17,7 @@ export function Header() {
     { label: 'Works', href: '/works' },
     { label: 'Process', href: '/process' },
     { label: 'Partners', href: '/partners' },
-  ]
+  ];
 
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
@@ -28,12 +28,12 @@ export function Header() {
             <div className="flex h-9 sm:h-10 w-9 sm:w-10 items-center justify-center rounded-lg ">
               {/* <span className="text-base sm:text-lg font-bold text-accent-foreground">☀️</span> */}
               {/* bg-accent */}
-              <Image 
-              src="/app-icon.png" 
-              alt="SunStark Solar" 
-              width={32} 
-              height={32} 
-              className="rounded-full w-96"
+              <Image
+                src="/app-icon.png"
+                alt="SunStark Solar"
+                width={32}
+                height={32}
+                className="rounded-full w-96"
               />
             </div>
             <span className="text-foreground tracking-tight hidden sm:inline">SunStark</span>
@@ -88,5 +88,5 @@ export function Header() {
         )}
       </div>
     </header>
-  )
-}
+  );
+};
