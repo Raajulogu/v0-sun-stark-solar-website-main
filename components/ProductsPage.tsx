@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import Link from 'next/link';
 import Image from 'next/image';
@@ -31,67 +31,13 @@ interface ProductType {
 }
 
 export default function ProductsPage() {
-  // const products = [
-  //   {
-  //     id: 1,
-  //     name: 'Premium Solar Panels',
-  //     category: 'Solar Panels',
-  //     image: '/images/product-solar-panels.jpg',
-  //     description: 'High-efficiency monocrystalline solar panels with 25-year performance warranty. Perfect for residential and commercial installations.',
-  //     specs: ['400W - 550W capacity', '22-24% efficiency', 'Weather-resistant design', 'Advanced cell technology'],
-  //     highlight: 'Industry-leading efficiency'
-  //   },
-  //   {
-  //     id: 2,
-  //     name: 'Hybrid Solar Inverter',
-  //     category: 'Inverters',
-  //     image: '/images/product-inverter.jpg',
-  //     description: 'Smart hybrid inverter system with real-time monitoring, battery compatibility, and grid-tie capability for optimal energy management.',
-  //     specs: ['Single or 3-phase options', 'Wi-Fi & Bluetooth enabled', 'Battery backup support', 'Cloud monitoring'],
-  //     highlight: 'Smart energy management'
-  //   },
-  //   {
-  //     id: 3,
-  //     name: 'Lithium Battery Storage',
-  //     category: 'Energy Storage',
-  //     image: '/images/product-battery.jpg',
-  //     description: 'Advanced lithium-ion battery storage system for 24/7 energy independence. Perfect for backup power and peak shaving.',
-  //     specs: ['5kWh - 50kWh capacity', 'Fast charging & discharging', 'Weather-proof enclosure', 'BMS protection system'],
-  //     highlight: 'Complete energy independence'
-  //   },
-  //   {
-  //     id: 4,
-  //     name: 'Smart Monitoring System',
-  //     category: 'Monitoring',
-  //     image: '/images/product-monitoring.jpg',
-  //     description: 'Real-time solar system monitoring with mobile app, performance analytics, and predictive maintenance alerts.',
-  //     specs: ['24/7 cloud monitoring', 'Mobile app control', 'Performance analytics', 'Alert notifications'],
-  //     highlight: 'Real-time insights'
-  //   },
-  //   {
-  //     id: 5,
-  //     name: 'Premium Mounting Structure',
-  //     category: 'Mounting',
-  //     image: '/images/product-mounting.jpg',
-  //     description: 'Heavy-duty aluminum mounting system engineered for maximum stability and longevity in all weather conditions.',
-  //     specs: ['Aluminum alloy construction', 'Adjustable tilt angles', 'Corrosion resistant', 'Easy installation'],
-  //     highlight: 'Built to last'
-  //   },
-  //   {
-  //     id: 6,
-  //     name: 'Professional Wiring & Components',
-  //     category: 'Electrical',
-  //     image: '/images/product-wiring.jpg',
-  //     description: 'Certified electrical components and professional-grade wiring designed for safe, efficient solar system operations.',
-  //     specs: ['UL certified cables', 'DC & AC components', 'Safety protection devices', 'Industry standard'],
-  //     highlight: 'Safety assured'
-  //   }
-  // ];
-  const [products, setProducts] = useState<ProductType[]>([]);
+
+  const [products, setProducts] = useState<any>([]);
 
   useEffect(() => {
     const fetchProducts = async () => {
-      const data = await getAllProducts();
+      const data: any = await getAllProducts();
+      setProducts(data);
     };
     fetchProducts();
   }, []);
@@ -141,7 +87,7 @@ export default function ProductsPage() {
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-                {products?.map((product) => (
+                {products?.map((product: any) => (
                   <div key={product?.uid} className="group overflow-hidden rounded-lg border border-border bg-background hover:border-accent transition-all hover:shadow-md flex flex-col h-full">
                     {/* Product Image */}
                     <div className="aspect-video relative overflow-hidden bg-muted">
@@ -171,10 +117,10 @@ export default function ProductsPage() {
                       <div className="space-y-2">
                         <h4 className="text-xs sm:text-sm font-semibold text-foreground uppercase tracking-wide">Key Features</h4>
                         <ul className="space-y-1">
-                          {product?.data?.specs?.map((spec, i) => (
+                          {product?.data?.specs?.map((data: any, i: any) => (
                             <li key={i} className="flex items-start gap-2 text-xs sm:text-sm text-muted-foreground">
                               <Zap className="h-3 sm:h-4 w-3 sm:w-4 text-accent flex-shrink-0 mt-0.5" />
-                              <span>{spec}</span>
+                              <span>{data.spec}</span>
                             </li>
                           ))}
                         </ul>
