@@ -4,8 +4,10 @@ import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
+import getYearsOfEXP from '@/hooks/getYearsOfEXP'
 
 export default function PartnersPage() {
+  const { yearsOfExcellence } = getYearsOfEXP()
   return (
     <>
       <Header />
@@ -192,7 +194,7 @@ export default function PartnersPage() {
                   },
                   {
                     title: 'Expert Team',
-                    desc: 'Certified engineers and technicians with 10+ years of industry experience'
+                    desc: `Certified engineers and technicians with ${yearsOfExcellence}+ years of industry experience`
                   },
                   {
                     title: 'Comprehensive Support',
@@ -232,7 +234,7 @@ export default function PartnersPage() {
                 {[
                   { metric: '500+', label: 'Projects Completed' },
                   { metric: '99%', label: 'Customer Satisfaction' },
-                  { metric: '10+', label: 'Years in Business' },
+                  { metric: `${yearsOfExcellence}+`, label: 'Years in Business' },
                   { metric: '10MW+', label: 'Total Capacity Installed' }
                 ].map((item, i) => (
                   <div key={i} className="text-center space-y-2 rounded-lg border border-border bg-card p-6">

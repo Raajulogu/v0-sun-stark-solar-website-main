@@ -8,12 +8,11 @@ import { ArrowRight, Zap, Shield, TrendingUp, Users } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
+import getYearsOfEXP from '@/hooks/getYearsOfEXP'
 
 // Trust Indicators Component with Dynamic Years
 function TrustIndicators() {
-  const foundingYear = 2025
-  const currentYear = new Date().getFullYear()
-  const yearsOfExcellence = currentYear - foundingYear + 1
+  const { yearsOfExcellence } = getYearsOfEXP()
 
   return (
     <div className="pt-8 sm:pt-12 grid grid-cols-3 gap-4 sm:gap-6 border-t border-border/30">

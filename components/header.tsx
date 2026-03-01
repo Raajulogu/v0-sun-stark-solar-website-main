@@ -24,19 +24,20 @@ export function Header() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between py-4 sm:py-5">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 sm:gap-3 text-xl sm:text-2xl font-bold flex-shrink-0">
-            <div className="flex h-9 sm:h-10 w-9 sm:w-10 items-center justify-center rounded-lg ">
-              {/* <span className="text-base sm:text-lg font-bold text-accent-foreground">☀️</span> */}
-              {/* bg-accent */}
+          <Link
+            href="/"
+            className="relative flex items-center gap-2 sm:gap-3 text-xl sm:text-2xl font-bold"
+          >
+            <div className="w-fit">
               <Image
-                src="/app-icon.png"
+                src="/logo3.png"
                 alt="SunStark Solar"
-                width={32}
-                height={32}
-                className="rounded-full w-96"
+                width={140}
+                height={80}
+                className="h-12 w-auto object-contain"
+                priority
               />
             </div>
-            <span className="text-foreground tracking-tight hidden sm:inline">SunStark</span>
           </Link>
 
           {/* Desktop Navigation */}
