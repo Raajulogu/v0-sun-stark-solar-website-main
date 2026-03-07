@@ -95,7 +95,7 @@ export default function ProductsPage() {
                         src={product?.data?.image?.url || "/placeholder.svg"}
                         alt={product?.data?.name}
                         fill
-                        className="object-cover group-hover:scale-105 transition-transform duration-300"
+                        className="object-fit group-hover:scale-105 transition-transform duration-300"
                       />
                     </div>
 
